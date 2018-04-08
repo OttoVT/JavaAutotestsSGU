@@ -16,7 +16,7 @@ import java.util.function.Function;
 import org.testng.ITestResult;
 
 @Listeners({ Listener.class })
-public class FirstTest extends  BaseTest{
+public class EKatalogTest extends  BaseTest{
 
 	@Test(description = "Success login user test")
 	public void loginUser() {
@@ -55,16 +55,13 @@ public class FirstTest extends  BaseTest{
 		executor.executeScript("arguments[0].click()", submitButton);
 		WebElement cameraInfo = fluentWait(By.id("product_625607"));
 		executor.executeScript("arguments[0].click()", cameraInfo);
-		//fluentWait(By.xpath("//span[@class='big-star-off']")).click();
 		fluentWait(By.className("big-star-off")).click();
 		boolean actualResult = fluentWait(By.id("marked_item_625607")) != null;
 		Assert.assertEquals(actualResult, true);
 		fluentWait(By.id("name_bm_visited")).click();
 		actualResult = fluentWait(By.xpath("//div[text()='Sony HDR-AZ1VW']")) != null;
 		Assert.assertEquals(actualResult, true);
-		//fluentWait(By.id("name_bm_marked")).click();
 		WebElement deleteItem = fluentWait(By.className("big-star-on"));
-		//fluentWait(By.xpath("//div[@class='panel-item-close']"));
 		deleteItem.click();
 	}
 
